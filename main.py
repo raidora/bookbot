@@ -1,4 +1,4 @@
-def countCharacters(text):
+def count_characters(text):
     chars = {} 
     for c in text.lower():
         if not c.isalpha():
@@ -9,15 +9,15 @@ def countCharacters(text):
         else:
             chars[c] = 1
 
-    structuredCharList = []
+    structured_char_list = []
     for k, v in chars.items():
-        structuredCharList.append({"char": k, "count": v})
+        structured_char_list.append({"char": k, "count": v})
 
-    structuredCharList.sort(reverse=True, key=lambda d : d["count"])
-    return structuredCharList
+    structured_char_list.sort(reverse=True, key=lambda d : d["count"])
+    return structured_char_list
 
-def prettyPrintCounts(structuredCharList):
-    for i in structuredCharList:
+def pretty_print_counts(structured_char_list):
+    for i in structured_char_list:
         print(f"The '{i["char"]}' character war found {i["count"]} times")
 
 
@@ -28,7 +28,7 @@ def main():
         words = file_contents.split()
         print(f"{len(words)} words found in the document\n")
 
-        structuredCharList = countCharacters(file_contents)
-        prettyPrintCounts(structuredCharList)
+        structured_char_list = count_characters(file_contents)
+        pretty_print_counts(structured_char_list)
 
 main()
